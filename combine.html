@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Webpage Examples</title>
+
+  <style>
+    :root {
+      --primary: #004aad;
+      --accent: #ff7a59;
+      --dark: #222;
+      --light: #f4f7fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    header, nav, footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav {
+      background-color: #002f6c;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: white;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 12px;
+      width: 85%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--primary);
+      text-align: center;
+    }
+
+    /* =============== COLLEGE HOMEPAGE =============== */
+    .college-header {
+      background: linear-gradient(90deg, #004aad, #0074d9);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .college-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .college-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 800px) {
+      .college-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    /* =============== RESTAURANT SECTION =============== */
+    .restaurant-banner {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .restaurant-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 12px;
+    }
+
+    .restaurant-banner h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 2rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .menu-item {
+      display: flex;
+      gap: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .menu-item img {
+      width: 100px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (min-width: 700px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* =============== BLOG SECTION =============== */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .blog-post {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .blog-post img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .blog-post h3 {
+      margin: 0.5rem 0;
+    }
+
+    .sidebar {
+      background: #f9fafc;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 900px) {
+      .blog-layout {
+        grid-template-columns: 2fr 1fr;
+      }
+
+      .blog-post {
+        flex-direction: row;
+        gap: 1rem;
+      }
+
+      .blog-post img {
+        width: 200px;
+        height: 130px;
+      }
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      border-top: 4px solid var(--accent);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Responsive Webpage Examples</h1>
+    <p>College | Restaurant | Blog Layouts</p>
+  </header>
+
+  <nav>
+    <a href="#college">College Homepage</a>
+    <a href="#restaurant">Restaurant Website</a>
+    <a href="#blog">Blog Layout</a>
+  </nav>
+
+  <!-- ============ COLLEGE HOMEPAGE ============ -->
+  <section id="college">
+    <h2>College Homepage (Responsive Design)</h2>
+    <div class="college-header">
+      <h1>ABC College of Engineering</h1>
+      <p>Shaping the Future Through Innovation & Education</p>
+    </div>
+
+    <div class="college-grid">
+      <div class="college-card">
+        <h3>About Us</h3>
+        <p>ABC College is a premier institution offering quality education in Engineering, Technology, and Management. We focus on practical learning and research excellence.</p>
+      </div>
+
+      <div class="college-card">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">Placements</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESTAURANT WEBSITE ============ -->
+  <section id="restaurant">
+    <h2>Restaurant Website (Banner, Menu & Footer)</h2>
+    <div class="restaurant-banner">
+      <h1>La Bella Trattoria</h1>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1601924638867-3ec62b7b661b?auto=format&fit=crop&w=400&q=80" alt="Pizza">
+        <div>
+          <h4>Margherita Pizza</h4>
+          <p>Fresh mozzarella, basil & tomato</p>
+          <strong>₹399</strong>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1603133872873-5b9e47df5e1f?auto=format&fit=crop&w=400&q=80" alt="Pasta">
+        <div>
+          <h4>Pasta Alfredo</h4>
+          <p>Creamy garlic sauce</p>
+          <strong>₹349</strong>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1606755962773-0f0c6b6b28a6?auto=format&fit=crop&w=400&q=80" alt="Salad">
+        <div>
+          <h4>Caesar Salad</h4>
+          <p>Romaine lettuce with parmesan</p>
+          <strong>₹199</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG LAYOUT ============ -->
+  <section id="blog">
+    <h2>Blog Layout (Using Flexbox & Grid)</h2>
+    <div class="blog-layout">
+      <div>
+        <article class="blog-post">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Blog Post">
+          <div>
+            <h3>Responsive Design with CSS Grid</h3>
+            <p>Learn how to structure websites that adapt beautifully to any screen using CSS Grid and media queries.</p>
+          </div>
+        </article>
+
+        <article class="blog-post">
+          <img src="https://images.unsplash.com/photo-1537432376769-00a4f80b16b3?auto=format&fit=crop&w=800&q=80" alt="Blog Post 2">
+          <div>
+            <h3>Flexbox for Modern Layouts</h3>
+            <p>Understand how to align, space, and distribute items efficiently using CSS Flexbox properties.</p>
+          </div>
+        </article>
+      </div>
+
+      <aside class="sidebar">
+        <h3>About the Author</h3>
+        <p>Web designer passionate about responsive and user-friendly websites.</p>
+        <h4>Categories</h4>
+        <ul>
+          <li>Web Design</li>
+          <li>CSS Tips</li>
+          <li>Frontend Development</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Responsive Webpage Demo | Designed by Prajwal Padasalgi</p>
+  </footer>
+
+</body>
+</html>

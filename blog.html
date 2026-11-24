@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Responsive Blog Layout</title>
+<style>
+  :root{--gap:1rem;--max:1100px}
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,Arial;margin:0;color:#222;background:#fafafa}
+  .wrap{max-width:var(--max);margin:0 auto;padding:1rem}
+  header{padding:.5rem 0}
+  header h1{margin:0}
+
+  /* Grid layout - mobile: single column */
+  .layout{display:grid;grid-template-columns:1fr;gap:var(--gap);margin-top:1rem}
+  .content{background:white;padding:1rem;border-radius:8px;box-shadow:0 6px 16px rgba(10,20,40,0.04)}
+  .sidebar{background:white;padding:1rem;border-radius:8px;box-shadow:0 6px 16px rgba(10,20,40,0.04)}
+
+  /* article list using flex for card rows */
+  .post{display:flex;gap:1rem;align-items:flex-start}
+  .post img{width:140px;height:90px;object-fit:cover;border-radius:6px}
+  .meta{font-size:.9rem;color:#666}
+
+  /* Desktop: 2-column with main + sidebar */
+  @media(min-width:900px){
+    .layout{grid-template-columns:2fr 1fr}
+  }
+
+  /* Card styles inside sidebar */
+  .widget{margin-bottom:1rem;padding:.75rem;border-radius:6px;background:#fff}
+  .search input{width:100%;padding:.5rem;border-radius:6px;border:1px solid #ddd}
+
+  footer{margin-top:1rem;text-align:center;padding:1rem;color:#666}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>My Tech Blog</h1>
+    </header>
+
+    <div class="layout">
+      <main class="content">
+        <article class="post">
+          <img src="post1.jpg" alt="">
+          <div>
+            <h2>How to Build Responsive Layouts</h2>
+            <p class="meta">Nov 6, 2025 • 8 min read</p>
+            <p>Short excerpt about responsive design using CSS Grid and Flexbox...</p>
+          </div>
+        </article>
+
+        <article style="margin-top:1rem" class="post">
+          <img src="post2.jpg" alt="">
+          <div>
+            <h2>Practical CSS Patterns</h2>
+            <p class="meta">Oct 28, 2025 • 6 min read</p>
+            <p>Another short excerpt...</p>
+          </div>
+        </article>
+      </main>
+
+      <aside class="sidebar">
+        <div class="widget search">
+          <label for="q">Search</label><br>
+          <input id="q" placeholder="Search posts...">
+        </div>
+
+        <div class="widget">
+          <h4>About Me</h4>
+          <p>Short bio and links to social.</p>
+        </div>
+
+        <div class="widget">
+          <h4>Categories</h4>
+          <ul style="padding-left:1rem">
+            <li>Web Dev</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© 2025 My Tech Blog</footer>
+  </div>
+</body>
+</html>

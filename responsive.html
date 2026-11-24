@@ -1,0 +1,114 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>College Homepage (Responsive)</title>
+<style>
+  :root{
+    --primary:#0b57a4;
+    --accent:#f3f7fb;
+    --max-width:1100px;
+  }
+  /* Mobile-first base */
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,Segoe UI,Roboto,Arial;
+    line-height:1.5;
+    color:#222;
+    background:var(--accent);
+  }
+  .container{max-width:var(--max-width);margin:0 auto;padding:1rem;}
+
+  header{
+    background:linear-gradient(90deg,var(--primary), #0a4a88);
+    color:white;padding:1rem 0;
+  }
+  .brand{display:flex;align-items:center;gap:0.75rem;padding:0 1rem}
+  .brand img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+  nav{margin-top:0.5rem}
+  nav a{display:inline-block;padding:0.5rem 0.75rem;color:white;text-decoration:none;font-weight:600}
+
+  /* Hero */
+  .hero{background:white;border-radius:10px;padding:1rem;margin-top:1rem;display:block}
+  .hero h1{margin:0 0 .5rem;font-size:1.25rem}
+  .hero p{margin:0;color:#445}
+
+  /* Grid areas (stacked on mobile) */
+  .grid{display:block;margin-top:1rem;gap:1rem}
+  .card{background:white;border-radius:10px;padding:1rem;box-shadow:0 6px 18px rgba(10,20,40,0.05)}
+
+  /* Footer */
+  footer{margin-top:1rem;padding:1rem;text-align:center;color:#666}
+
+  /* Desktop: two-column header + 3-col grid for features */
+  @media (min-width:800px){
+    .brand{padding:0 1.5rem}
+    nav{margin-left:auto}
+    header .container{display:flex;align-items:center;gap:1rem}
+    .grid{display:grid;grid-template-columns:2fr 1fr;align-items:start}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+  }
+
+  @media (min-width:1100px){
+    .hero h1{font-size:1.75rem}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center;">
+      <div class="brand">
+        <img src="college-logo.png" alt="Logo">
+        <div>
+          <div style="font-weight:700">ABC College</div>
+          <small>Excellence in Education</small>
+        </div>
+      </div>
+      <nav style="margin-left:auto;">
+        <a href="#about">About</a>
+        <a href="#departments">Departments</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <h1>Welcome to ABC College</h1>
+      <p>Top-tier programs, modern labs, and student-focused learning. Apply now for the 2026 intake.</p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2 id="about">About Us</h2>
+        <p>Short intro — mission, vision, and highlights.</p>
+        <p><strong>Highlights:</strong> Research labs, student clubs, placement cell.</p>
+      </section>
+
+      <aside class="card">
+        <h3>Quick Links</h3>
+        <ul style="padding-left:1rem">
+          <li><a href="#">Admission Portal</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Scholarships</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="features">
+      <div class="card"><h4>Departments</h4><p>CS, ECE, ME, CE</p></div>
+      <div class="card"><h4>Events</h4><p>Workshops, Seminars</p></div>
+      <div class="card"><h4>Placements</h4><p>Top recruiters</p></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© 2025 ABC College • Address • Phone</div>
+  </footer>
+</body>
+</html>
+

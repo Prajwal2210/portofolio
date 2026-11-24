@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Validation Examples — Signup | Login | Feedback</title>
+  <style>
+    :root {
+      --primary: #0b57a4;
+      --muted: #666;
+      --bg: #f5f7fb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:var(--bg);
+      color:#222;
+      line-height:1.45;
+    }
+    header, nav, footer {
+      background:var(--primary);
+      color:white;
+      padding:14px 16px;
+      text-align:center;
+    }
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      background:#084a8a;
+    }
+    nav a{
+      color:white;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:6px;
+    }
+    nav a:hover{background:rgba(255,255,255,0.08)}
+    main{max-width:900px;margin:22px auto;padding:0 16px}
+    section{
+      background:white;
+      margin:18px 0;
+      padding:18px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(10,20,40,0.06);
+    }
+    h2{color:var(--primary);margin-top:0}
+    form{display:grid;gap:10px}
+    label{font-weight:600}
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"], select, textarea {
+      padding:10px;border:1px solid #d7dce6;border-radius:6px;width:100%;
+      font-size:1rem;
+    }
+    textarea{resize:vertical}
+    .row{display:flex;gap:10px}
+    .row > *{flex:1}
+    .small{font-size:.9rem;color:var(--muted)}
+    .error{color:#b00020;font-size:.9rem;margin-top:4px}
+    .btn{
+      background:var(--primary);color:white;border:none;padding:10px 14px;border-radius:6px;
+      cursor:pointer;font-weight:700;
+    }
+    .btn:active{transform:translateY(1px)}
+    /* table for demonstration (not required) */
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th, td{padding:8px;border:1px solid #e1e5ee;text-align:left}
+    th{background:#f1f5fb}
+    footer{font-size:.9rem}
+    @media(min-width:900px){
+      .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Form Validation Demo</h1>
+    <div class="small">Signup • Login • Feedback — client-side JavaScript validation</div>
+  </header>
+
+  <nav>
+    <a href="#signup">Signup</a>
+    <a href="#login">Login</a>
+    <a href="#feedback">Feedback</a>
+  </nav>
+
+  <main>
+    <!-- Signup -->
+    <section id="signup" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Signup Form — require name, email, password</h2>
+      <form id="signupForm" novalidate>
+        <div>
+          <label for="s_name">Full name</label>
+          <input id="s_name" name="name" type="text" placeholder="Your full name" required>
+          <div id="s_name_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="s_email">Email</label>
+          <input id="s_email" name="email" type="email" placeholder="you@example.com" required>
+          <div id="s_email_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="s_password">Password</label>
+          <input id="s_password" name="password" type="password" placeholder="Min 8 characters" required>
+          <div id="s_password_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Signup</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Login -->
+    <section id="login" aria-labelledby="login-heading">
+      <h2 id="login-heading">Login Form — validate email format & password length</h2>
+      <form id="loginForm" novalidate>
+        <div>
+          <label for="l_email">Email</label>
+          <input id="l_email" name="email" type="email" placeholder="you@example.com" required>
+          <div id="l_email_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="l_password">Password</label>
+          <input id="l_password" name="password" type="password" placeholder="At least 8 characters" required>
+          <div id="l_password_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Login</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading">Feedback Form — rating required + comments</h2>
+      <form id="feedbackForm" novalidate>
+        <div>
+          <label>Choose a rating</label>
+          <div class="row" role="radiogroup" aria-labelledby="rating-group">
+            <label><input type="radio" name="rating" value="1"> 1</label>
+            <label><input type="radio" name="rating" value="2"> 2</label>
+            <label><input type="radio" name="rating" value="3"> 3</label>
+            <label><input type="radio" name="rating" value="4"> 4</label>
+            <label><input type="radio" name="rating" value="5"> 5</label>
+          </div>
+          <div id="f_rating_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <label for="f_comments">Comments</label>
+          <textarea id="f_comments" name="comments" rows="4" placeholder="Write your suggestions..." required></textarea>
+          <div id="f_comments_err" class="error" aria-live="polite"></div>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Submit Feedback</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Optional: demonstration area (shows successful submissions briefly) -->
+    <section aria-hidden="true">
+      <h2>Submission Log (Demo)</h2>
+      <p class="small">Successful submissions will appear below (client-side only).</p>
+      <table id="logTable" aria-hidden="false">
+        <thead><tr><th>Form</th><th>Details</th><th>Time</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Form Validation Demo
+  </footer>
+
+  <script>
+    // Utility: show error text
+    function showError(el, message) {
+      el.textContent = message || "";
+    }
+    // Utility: add a row to demo log
+    function addLog(formName, details) {
+      const tbody = document.querySelector("#logTable tbody");
+      const tr = document.createElement("tr");
+      const now = new Date().toLocaleString();
+      tr.innerHTML = `<td>${formName}</td><td>${details}</td><td>${now}</td>`;
+      tbody.prepend(tr);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // --- Signup validation ---
+      const signupForm = document.getElementById("signupForm");
+      signupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("s_name").value.trim();
+        const email = document.getElementById("s_email").value.trim();
+        const password = document.getElementById("s_password").value;
+
+        // Elements for errors
+        const nameErr = document.getElementById("s_name_err");
+        const emailErr = document.getElementById("s_email_err");
+        const passwordErr = document.getElementById("s_password_err");
+
+        // Reset errors
+        showError(nameErr, "");
+        showError(emailErr, "");
+        showError(passwordErr, "");
+
+        let valid = true;
+
+        if (!name) {
+          showError(nameErr, "Please enter your full name.");
+          valid = false;
+        }
+        if (!email) {
+          showError(emailErr, "Please enter your email.");
+          valid = false;
+        } else {
+          // basic email check
+          const pattern = /^\S+@\S+\.\S+$/;
+          if (!pattern.test(email)) {
+            showError(emailErr, "Please enter a valid email address.");
+            valid = false;
+          }
+        }
+        if (!password) {
+          showError(passwordErr, "Please enter a password.");
+          valid = false;
+        } else if (password.length < 8) {
+          showError(passwordErr, "Password must be at least 8 characters long.");
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Signup successful!");
+          addLog("Signup", `Name: ${name}, Email: ${email}`);
+          signupForm.reset();
+        }
+      });
+
+      // --- Login validation ---
+      const loginForm = document.getElementById("loginForm");
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("l_email").value.trim();
+        const password = document.getElementById("l_password").value;
+
+        const emailErr = document.getElementById("l_email_err");
+        const passwordErr = document.getElementById("l_password_err");
+        showError(emailErr, "");
+        showError(passwordErr, "");
+
+        let valid = true;
+        const pattern = /^\S+@\S+\.\S+$/;
+        if (!email) {
+          showError(emailErr, "Please enter your email.");
+          valid = false;
+        } else if (!pattern.test(email)) {
+          showError(emailErr, "Please enter a valid email address.");
+          valid = false;
+        }
+
+        if (!password) {
+          showError(passwordErr, "Please enter your password.");
+          valid = false;
+        } else if (password.length < 8) {
+          showError(passwordErr, "Password must be at least 8 characters.");
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Login successful!");
+          addLog("Login", `Email: ${email}`);
+          loginForm.reset();
+        }
+      });
+
+      // --- Feedback validation ---
+      const feedbackForm = document.getElementById("feedbackForm");
+      feedbackForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const ratingChecked = document.querySelector('input[name="rating"]:checked');
+        const comments = document.getElementById("f_comments").value.trim();
+
+        const ratingErr = document.getElementById("f_rating_err");
+        const commentsErr = document.getElementById("f_comments_err");
+        showError(ratingErr, "");
+        showError(commentsErr, "");
+
+        let valid = true;
+        if (!ratingChecked) {
+          showError(ratingErr, "Please select a rating.");
+          valid = false;
+        }
+        if (!comments) {
+          showError(commentsErr, "Please enter your comments.");
+          valid = false;
+        } else if (comments.length < 10) {
+          showError(commentsErr, "Comments should be at least 10 characters.");
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Thank you for your feedback!");
+          addLog("Feedback", `Rating: ${ratingChecked.value}, Comments: ${comments.substring(0,60)}${comments.length>60?"...":""}`);
+          feedbackForm.reset();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

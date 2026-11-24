@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f7fc;
+      color: #333;
+    }
+
+    header, nav, footer {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background-color: white;
+      margin: 20px auto;
+      padding: 25px;
+      width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #004aad;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 250px;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      width: auto;
+    }
+
+    input[type="submit"] {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00367a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #004aad;
+      color: white;
+    }
+
+    footer {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Student Information Portal</h1>
+    <p>Registration | Records | Feedback</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#registration">Registration Form</a>
+    <a href="#records">Student Records</a>
+    <a href="#feedback">Course Feedback</a>
+  </nav>
+
+  <!-- Section 1: Student Registration Form -->
+  <section id="registration">
+    <h2>Student Registration Form</h2>
+    <form>
+      <label>Full Name:</label><br>
+      <input type="text" name="fullname" required><br>
+
+      <label>Date of Birth:</label><br>
+      <input type="date" name="dob" required><br>
+
+      <label>Department:</label><br>
+      <select name="department" required>
+        <option value="">-- Select Department --</option>
+        <option value="CSE">Computer Science</option>
+        <option value="ECE">Electronics</option>
+        <option value="ME">Mechanical</option>
+        <option value="CE">Civil</option>
+      </select><br>
+
+      <label>Hobbies:</label><br>
+      <input type="checkbox" name="hobby" value="Reading"> Reading
+      <input type="checkbox" name="hobby" value="Sports"> Sports
+      <input type="checkbox" name="hobby" value="Music"> Music
+      <input type="checkbox" name="hobby" value="Traveling"> Traveling<br><br>
+
+      <input type="submit" value="Register">
+    </form>
+  </section>
+
+  <!-- Section 2: Student Records Table -->
+  <section id="records">
+    <h2>Student Records</h2>
+    <table>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Marks</th>
+      </tr>
+      <tr>
+        <td>101</td>
+        <td>John Doe</td>
+        <td>10th</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>Jane Smith</td>
+        <td>10th</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>Mark Lee</td>
+        <td>9th</td>
+        <td>76</td>
+      </tr>
+      <tr>
+        <td>104</td>
+        <td>Sophia Brown</td>
+        <td>10th</td>
+        <td>91</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Section 3: Course Feedback Form -->
+  <section id="feedback">
+    <h2>Course Feedback Form</h2>
+    <form>
+      <label>Course Name:</label><br>
+      <input type="text" name="course" required><br>
+
+      <label>Rate the Course:</label><br>
+      <input type="radio" name="rating" value="1"> 1
+      <input type="radio" name="rating" value="2"> 2
+      <input type="radio" name="rating" value="3"> 3
+      <input type="radio" name="rating" value="4"> 4
+      <input type="radio" name="rating" value="5"> 5<br><br>
+
+      <label>Suggestions / Feedback:</label><br>
+      <textarea name="suggestions" rows="5" cols="40" placeholder="Write your feedback here..."></textarea><br><br>
+
+      <input type="submit" value="Submit Feedback">
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Student Information Portal | Designed by Prajwal Padasalgi</p>
+  </footer>
+
+</body>
+</html>
